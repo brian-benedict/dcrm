@@ -10,6 +10,7 @@ def index(request):
 
         user = authenticate(request, username = username, password = password)
         if user is not None:
+            login(request, user)
             messages.success(request, "you have been logged in")
             return redirect('home')
         else:
